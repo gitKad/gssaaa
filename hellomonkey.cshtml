@@ -9,7 +9,7 @@
  
     // if the caller is known, then greet them by name
     // otherwise, consider them just another monkey
-    string name = "Monkey";
+    string name = "";
     if (!string.IsNullOrEmpty(Request["From"]))
     {
         name = people[Request["From"]];
@@ -20,13 +20,20 @@
 }
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-    <Say>Hello @name.</Say>
-    <Play>http://demo.twilio.com/hellomonkey/monkey.mp3</Play>
+    <Gather timeout="4" numDigits="3" action="http://gssaa.azurewebsites.net/hello-monkey-handle-key.cshtml" method="POST">
+        <Say voice="woman">
+            Welcome to Grid Show Systems @name.
+            
+            If you know the extension of the person you wish to reach, please enter it now.
+        </Say>
+    </Gather>
     <Gather numDigits="1" action="http://gssaa.azurewebsites.net/hello-monkey-handle-key.cshtml" method="POST">
-        <Say>
-            To speak with a real monkey, press 1.  
-            Press 2 to record your own monkey howl.  
-            Press any other key to start over.
+        <Say voice="woman">
+            For our contact information, press 1.
+            For sales, press 2.
+            For service, press 3.
+            For technical support, press 4.
+            For any other topic, press 0.
         </Say>
     </Gather>
 </Response>
