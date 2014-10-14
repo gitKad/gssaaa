@@ -1,3 +1,6 @@
+@{
+        Response.ContentType = "text/xml";
+}
 <Response>
 <Gather numDigits="7" action="http://gssaa.azurewebsites.net/mainMenuHandler.cshtml" method="POST">
         <Say>If you have a 7 digit request ID, enter it now.</Say>
@@ -9,4 +12,4 @@
     <Say>Please wait while we transfer your call.</Say>
     
     <Redirect>http://gssaa.azurewebsites.net/mainMenuHandler.cshtml</Redirect>
-    </Response>
+</Response>
