@@ -1,6 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
     
+    @if (Request["Digits"] != "")
+    {
+        If you have a 7 digit request ID, enter it now.
+        
+        If you have a 7 digit customer ID, enter it now.
+        
+        Please wait while we transfer your call.
+    }
+    
+    @if (Request["Digits"] == "1")
+    {
+        <say voice="woman">TO DO : contact information recording</say>
+    }
+    @if (Request["Digits"] == "2")
+    {
+        <say>You've reached Grid Show Systems sales department.</say>
+        <say>There are currently no sales representative available to take your call.</say>
+        <say>If you would like to receive a call from a sales representative, please leave a short message with your name and a call-back number and we'll get in touch as soon as possible. Thank you,</say>
+    }
+    @if (Request["Digits"] == "3")
+    {
+        <say>You've reached Grid Show Systems sales department.</say>
+        <say>There are currently no sales representative available to take your call.</say>
+        <say>If you would like to receive a call from a sales representative, please leave a short message with your name and a call-back number and we'll get in touch as soon as possible. Thank you,</say>
+    }
+    @if (Request["Digits"] == "4")
+    {
+        <say>You've reached Grid Show Systems sales department.</say>
+        <say>There are currently no sales representative available to take your call.</say>
+        <say>If you would like to receive a call from a sales representative, please leave a short message with your name and a call-back number and we'll get in touch as soon as possible. Thank you,</say>
+    }
+    @if (Request["Digits"] == "0")
+    {
+        <say>We're currently closed.</say>
+        <say>Please leave a short message with your name and a call-back number. We'll get in touch as soon as possible. Thank you.</say>
+    }
+    
     
     
     <Gather numDigits="1" action="http://gssaa.azurewebsites.net/mainMenuHandler.cshtml" method="POST">
@@ -12,4 +49,7 @@
             For any other topic, press 0.
         </Say>
     </Gather>
+    <Redirect method="GET">
+        http://gssaa.azurewebsites.net/mainMenuHandler.cshtml
+    </Redirect>
 </Response>
