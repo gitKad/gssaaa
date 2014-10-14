@@ -1,10 +1,10 @@
 @{
     // make a list of senders we know, indexed by phone number
     var people = new Dictionary<string, string>() { 
-        {"+14158675309","Curious George"},
-        {"+14158675310","Boots"},
+        {"+15144328488","Charles"},
         {"+15146864237","Kad"},
-        {"+14158675311","Virgil"}
+        {"+15146090733","Tasox Puff"},
+        {"+15147549928","Pay Hash"}
     };
  
     // if the caller is known, then greet them by name
@@ -20,20 +20,11 @@
 }
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-    <Gather timeout="4" numDigits="3" action="http://gssaa.azurewebsites.net/hello-monkey-handle-key.cshtml" method="POST">
+    <Gather timeout="4" numDigits="3" action="http://gssaa.azurewebsites.net/extensionHandler.cshtml" method="POST">
         <Say voice="woman">
             Welcome to Grid Show Systems @name.
             
             If you know the extension of the person you wish to reach, please enter it now.
-        </Say>
-    </Gather>
-    <Gather numDigits="1" action="http://gssaa.azurewebsites.net/hello-monkey-handle-key.cshtml" method="POST">
-        <Say voice="woman">
-            For our contact information, press 1.
-            For sales, press 2.
-            For service, press 3.
-            For technical support, press 4.
-            For any other topic, press 0.
         </Say>
     </Gather>
 </Response>
