@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Response>
+    
+    
+    
+    <Gather numDigits="1" action="http://gssaa.azurewebsites.net/mainMenuHandler.cshtml" method="POST">
+        <Say voice="woman">
+            For our contact information, press 1.
+            For sales, press 2.
+            For service, press 3.
+            For technical support, press 4.
+            For any other topic, press 0.
+        </Say>
+    </Gather>
+</Response>
