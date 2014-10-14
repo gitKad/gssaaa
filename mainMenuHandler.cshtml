@@ -3,14 +3,19 @@
 }
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-    <say>If you have a 7 digit request ID, enter it now.</say>
-    <say>If you have a 7 digit customer ID, enter it now.</say>
-    <say>Please wait while we transfer your call.</say>
+    <Gather numDigits="7" action="http://gssaa.azurewebsites.net/mainMenuHandler.cshtml" method="POST">
+        <Say>If you have a 7 digit request ID, enter it now.</Say>
+    </Gather>    
+    <Gather numDigits="7" action="http://gssaa.azurewebsites.net/mainMenuHandler.cshtml" method="POST">
+        <Say>If you have a 7 digit customer ID, enter it now.</Say>
+        
+    </Gather>
     
+    <Say>Please wait while we transfer your call.</Say>
     
     @if (Request["Digits"] == "1")
     {
-        <say voice="woman">TO DO : contact information recording</say>
+        <Say voice="woman">TO DO : contact information recording</Say>
     }
     @if (Request["Digits"] == "2")
     {
