@@ -14,8 +14,8 @@
     }
     @if (Request["Digits"] == "2")
     {
-        <Say>You've reached Grid Show Systems sales department.</Say>
-        @if (forwardCalls)
+        <Say>You have reached Grid Show Systems sales department.</Say>
+        if (forwardCalls)
         {
             <Say>Please wait while we transfer your call.</Say>
             <Dial timeout="10" record="true">@forwardNumber</Dial>
