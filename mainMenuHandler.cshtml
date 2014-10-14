@@ -1,6 +1,7 @@
 @{
     Response.ContentType = "text/xml";
     var forwardCalls = true;
+    var forwardNumber = "+15148864422";
 }
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
@@ -17,7 +18,7 @@
         @if (forwardCalls)
         {
             <Say>Please wait while we transfer your call.</Say>
-            <Dial timeout="10" record="true">+15148864422</Dial>
+            <Dial timeout="10" record="true">@forwardNumber</Dial>
         }
         <Say>There are currently no sales representative available to take your call.</Say>
         <Say>If you would like to receive a call from a sales representative, please leave a short message with your name and a call-back number and we'll get in touch as soon as possible. Thank you.</Say>
