@@ -1,17 +1,26 @@
 @{
     Response.ContentType = "text/xml";
+    var forwardCalls = true;
 }
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
     @if (Request["Digits"] == "1")
     {
-        <Say voice="woman">TO DO : contact information recording</Say>
+        <Gather numDigits="1" action="http://gssaa.azurewebsites.net/mainMenuHandler.cshtml" method="POST">
+            <Say voice="woman">TO DO : contact information recording</Say>
+            <Say voice="woman">To go back to the main menu, please press 9.</Say>
+        </Gather>
     }
     @if (Request["Digits"] == "2")
     {
-        <say>You've reached Grid Show Systems sales department.</say>
-        <say>There are currently no sales representative available to take your call.</say>
-        <say>If you would like to receive a call from a sales representative, please leave a short message with your name and a call-back number and we'll get in touch as soon as possible. Thank you,</say>
+        <Say>You've reached Grid Show Systems sales department.</Say>
+        @if (forwardCalls)
+        {
+            <Say>Please wait while we transfer your call.</Say>
+            <Dial timeout="10" record="true">+15148864422</Dial>
+        }
+        <Say>There are currently no sales representative available to take your call.</Say>
+        <Say>If you would like to receive a call from a sales representative, please leave a short message with your name and a call-back number and we'll get in touch as soon as possible. Thank you.</Say>
     }
     @if (Request["Digits"] == "3")
     {
